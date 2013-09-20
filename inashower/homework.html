@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	*{margin:0;padding:0}
+	ul,li{list-style:none}
+	a{text-decoration: none;color:#333333}
+	
+	#header{width:500px;background:gray}
+	ul{*zoom:1;width:70%;margin:0px auto;padding:5px 0}
+	ul:after{content:"";display:block;clear:both}
+	ul li{float:left;border:1px solid #333;margin:0 10px;padding:2px 10px;background:#FFFF99;text-align:center}
+	
+	#content{position:relative}
+	#content div{position:absolute;top:0;left:0;background:#ededed;width:500px;padding:50px 0}
+	#content input{display:inline-block;width:150px;}
+	
+	
+	#content #first{display:block;text-align:center}
+	#content #first input{margin:10px;}
+	
+	#summit{display:block}
+	
+	#content #second{display:none;text-align:center;margin:0 auto}
+</style>
+<script src="jquery-1.9.1.min.js"></script>
+<script>
+	function plus(){
+		document.getElementById("summit").value = "더하기";
+	}
+	function minus(){
+		document.getElementById("summit").value = "빼기";
+	}
+	function multiply(){
+		document.getElementById("summit").value = "곱하기";
+	}
+	function divide(){
+		document.getElementById("summit").value = "나누기";
+	}
+	
+	function summit01(){
+		$("content").css("display","none");
+		$("#second").css("display","block");
+		
+		var num = document.getElementById("summit").value;
+		
+		if(num == "더하기")
+		{
+		    var a = document.getElementById("inputA").value;
+            var b = document.getElementById("inputB").value;
+            
+            var result = document.getElementById("result");
+            result.innerHTML = parseInt(a)+parseInt(b);
+      
+		}
+		else if(num == "빼기")
+		{
+		    var a = document.getElementById("inputA").value;
+            var b = document.getElementById("inputB").value;
+            
+            var result = document.getElementById("result");
+            result.innerHTML = parseInt(a)-parseInt(b);
+		}
+		else if(num == "곱하기")
+        {
+            var a = document.getElementById("inputA").value;
+            var b = document.getElementById("inputB").value;
+            
+            var result = document.getElementById("result");
+            result.innerHTML = parseInt(a)*parseInt(b);
+        }
+        else if(num == "나누기")
+        {
+            var a = document.getElementById("inputA").value;
+            var b = document.getElementById("inputB").value;
+            
+            var result = document.getElementById("result");
+            result.innerHTML = parseInt(a)/parseInt(b);
+        }
+	}
+	function summit02(){
+		$("#second").css("display","none");
+		$("content").css("display","block");
+	}
+</script>
+
+</head>
+<body>
+	<div id="header">
+		<ul>
+			<li onclick="plus()"><a href="#">더하기</a></li>
+			<li onclick="minus()"><a href="#">빼기</a></li>
+			<li onclick="multiply()"><a href="#">곱하기</a></li>
+			<li onclick="divide()"><a href="#">나누기</a></li>
+		</ul><!--header end-->
+	</div>
+	<div id="content">
+		<div id="first">
+			<input id="inputA" type="text"/>
+			<input id="inputB" type="text"/>
+			<input id="summit" type="button" value="계산하기" onclick="summit01();"/>
+		</div><!--first end-->
+		
+		<div id="second">
+			<p id="result">결과는?</p>
+			<input type="button" value="돌아가기" onclick="summit02();"/>
+		</div><!--second end-->
+	</div><!--content end-->
+</body>
+</html>
