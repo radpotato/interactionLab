@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>hello world</title>
+	<meta name="viewport" content="initial-scale=1">
+	<style>
+		/* http://meyerweb.com/eric/tools/css/reset/ 
+		   v2.0 | 20110126
+		   License: none (public domain)
+		*/
+
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		.carousel {position:relative;width: 100%; font:58px/1.5 arial,sans-serif;height:100px;text-align: center; overflow: hidden;} /* width 계산 로직 */
+		.carousel .mask {
+		position:absolute;left:0;top:0;width:100%;overflow:hidden;
+		-webkit-transition:.5s all ease-in;
+		}
+		.carousel .mask div {float: left;width: 100%;}
+		.carousel .mask div:first-child {background: #666;}
+		.carousel .mask div:nth-of-type(2) {background: #eb2000;}
+		.carousel .mask div:nth-of-type(3) {}
+		.carousel button {position:absolute;top:5px;font:0/0 arial;padding:0;margin:0;border:0;background: none;cursor:pointer;}
+		.carousel button.leftBtn {left:0;}
+		.carousel button.rightBtn {right:0;}
+		.carousel button.leftBtn::before {content:"<";font:50px/1.5 arial;}
+		.carousel button.rightBtn::before {content:">";font:50px/1.5 arial;}
+		#paging {text-align: center}
+		#paging div {display:inline-block;width:8px;height:8px;border:1px solid #666;background: #fff;border-radius:4px;}
+		#paging div.on {background: #eb2000;border-color:#eb2000;}
+		#tabMenu {overflow: hidden;height:20px;}
+		#tabMenu a {display: block; float: left; width:33%; text-align: center; background: #666;}
+		#tabMenu a.on {background: #eb2000;}
+	</style>
+</head>
+<body>
+	<!--
+		1. 애니메이션이 잘 동작하는가?
+		2. 탭메뉴 or 페이지 추가가 가능한가?
+		3. 모듈화
+		4. 사이즈들 (모바일 대응)
+	-->
+	<div id="tabMenu">
+		<a href="#" class="on">안녕</a>
+		<a href="#">디지몬</a>
+		<a href="#">반가워</a>
+	</div>
+	<div id="carousel" class="carousel">
+		<div class="mask">
+			<div class="item1">1</div>
+			<div class="item2">2</div>
+			<div class="item3">3</div>
+		</div>
+		<button type="button" data-rel="left" class="leftBtn">좌로가기</button>
+		<button type="button" data-rel="right" class="rightBtn">우로가기</button>
+	</div>
+	<div id="paging">
+		<div class="on"></div>
+		<div></div>
+		<div></div>
+	</div>
+	<script src="carousel.js"></script>
+	<script>
+		var item = new carousel("#carousel .mask",{
+			targetTag : "div",
+			button : {left:".leftBtn", right:".rightBtn"},
+			paging : {target:"#paging", targetTag : "div"},
+			tab : {target:"#tabMenu", targetTag : "a"}
+		});
+		/* getElementById */
+	</script>
+	<!--
+		1. Mobile Carousel Animation Tech
+		1.1. CSS3 Transition or Animation Skill
+		1.2. JavaScript Technique (Event & DOM & Event Order[bubbling, Capturing])
+		1.3. CSS Masking Tech
+	-->
+</body>
+</html>
