@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+<style>
+html,body{width:100%;height:100%;background:rgba(255,255,255,0.4);font:normal 12px/25px '돋움', Dotum, dotum, arial, sans-serif;-webkit-text-size-adjust:none; }
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,table,th,td{margin:0;padding:0}
+table,img{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:none;}
+address,caption,cite,code,em,th{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:"";}
+abbr,acronym{border:0;}
+img,li,dt,dd,input,select{vertical-align:top;}
+hr{display:none}
+#wrap a{text-decoration:none;color:#FEFFF1 !important;border:none}
+#wrap a:hover,#wrap a:focus{text-decoration:none;border:none;outline-width:0}
+.hidden,legend{position:absolute;left:0;top:0;width:0;height:0;font-size:0;line-height:0;text-indent:-9999px;overflow:hidden;visibility:hidden;}
+nav,header,footer,section {display:block}
+
+.carousel {}
+.carousel ul {position:relative;width:2500px;overflow: hidden}
+.carousel ul li {float:left;width:500px}
+.target {width:500px;overflow: hidden}
+.tabMenu-title {width:500px}
+.tabMenu-title ul {width:500px}
+.tabMenu-title ul li {width:100px;background:#666}
+.tabMenu-title ul li a {}
+</style>
+</head>
+<body>
+<div id="carousel" class="carousel">
+	<div class="tabMenu-title">
+		<ul id="tabMenu">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+		</ul>
+	</div>
+	<div id="mask" class="target">
+		<ul id="target">
+			<li>1번 아이템</li>
+			<li>2번 아이템</li>
+			<li>3번 아이템</li>
+			<li>4번 아이템</li>
+		</ul>
+	</div>
+</div>
+<script src="flick.js"></script>
+</body>
+</html>
